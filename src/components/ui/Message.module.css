@@ -1,0 +1,29 @@
+.form {
+    width: 24%;
+    border: 1px solid rgb(171, 204, 245);
+    border-radius: 16px;
+    background-color: rgb(230, 245, 248);
+    margin: 32px;
+    padding: 24px;
+    box-shadow: 1px 5px 15px #ccc;
+}
+
+.btn {
+    margin: 20px;
+    width: 80px;
+    height: 30px;
+    border-radius: 8px;
+    border: 1px solid #abccf5;
+    box-shadow: 1px 5px 10px #ccc;
+}
+
+
+.name {
+    background-color:rgb(230, 233, 237);
+    margin: 32px;
+    padding: 16px;
+    width: 24%;
+    border-radius: 16px;
+    border: 1px solid #ccc;
+    box-shadow: 1px 5px 15px #ccc;
+}

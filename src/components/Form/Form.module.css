@@ -1,0 +1,21 @@
+.txtinput {
+    width: 70%;
+    border: 1px solid #000;
+    
+}
+
+.chatform {
+    border: 1px solid #ccc;
+    width: 55%;
+    padding: 50px 24px;
+    border-radius: 16px;
+    box-shadow: 1px 5px 15px #ccc;
+}
+
+.btn {
+    width: 140px;
+    height: 54px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 1px 5px 10px #ccc;
+}

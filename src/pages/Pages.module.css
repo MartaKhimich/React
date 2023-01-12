@@ -1,0 +1,19 @@
+.header {
+    text-align: center;
+    background-color: rgb(218, 236, 244);
+    color: darkblue;
+    margin-bottom: 24px;
+}
+
+.card {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row-reverse;
+    justify-content: center;
+    gap: 40px;
+}
+
+.btnAPI {
+    text-align: center;
+    margin-bottom: 24px;
+}

@@ -1,0 +1,14 @@
+.header {
+    margin: 16px;
+}
+
+.arrchats {
+    display: flex;
+
+}
+
+.arrtext {
+    padding-bottom: 4px;
+    line-height: 2.3;
+    list-style-type: none;
+}
