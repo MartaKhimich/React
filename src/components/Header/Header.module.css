@@ -6,7 +6,7 @@
 .header ul {
     display: flex;
     justify-content: center;
-    gap: 176px;
+    gap: 160px;
 }
 
 .header a {
