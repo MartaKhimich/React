@@ -1,7 +1,4 @@
 import PropTypes from 'prop-types';
-import { useState } from "react"
-import List from '@mui/material/List';
-import ListItem from '@mui/material/ListItem';
 import styles from './MessageList.module.css'
 
 export function MessageList ({messages}) {
@@ -11,11 +8,6 @@ export function MessageList ({messages}) {
         <>
             <h2 className={styles.header}>MessageList</h2>
             <div className={styles.arrchats}>
-                {/* <List>
-                    {arrchats.map((elem) => (
-                        <ListItem key={elem.id}>{elem.name}</ListItem>
-                    ))}
-                </List> */}
                 <ul className={styles.arrtext}>
                     {messages.map((message, index) => (
                         <li key={index}>

@@ -14,7 +14,6 @@ export function ProfilePage () {
     const dispatch = useDispatch()
 
     const handleChange = () => {
-        // dispatch({type: types.CHANGE_NAME, payload: value})
         dispatch(changeName(value))
         setValue('')
     }

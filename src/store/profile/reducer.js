@@ -2,7 +2,8 @@ import * as types from './types'
 
 const initialState = {
     name: 'Marta',
-    visible: true
+    visible: true,
+    isAuth: false
 }
 
 export const profileReducer = (state = initialState, action) => {
@@ -14,11 +15,16 @@ export const profileReducer = (state = initialState, action) => {
                 ...state,
                 name: payload
             }
-            case types.TOGGLE_PROFILE: 
-                return {
-                    ...state,
-                    visible: !state.visible
-                }
+        case types.TOGGLE_PROFILE: 
+            return {
+                ...state,
+                visible: !state.visible
+            }
+        case types.IS_AUTH: 
+            return {
+                ...state,
+                isAuth: payload
+            }
 
         default:
             return state

@@ -3,9 +3,11 @@ import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { addChat, deleteChat } from '../../store/messages/actions'
 import { selectChat } from '../../store/messages/selectors'
+import { push, set, remove } from "firebase/database";
+import { messagesRef } from "../../services/firebase"
 import styles from '../../pages/Pages.module.css'
 
-export function ChatList () {
+export function ChatList ({messageDB}) {
     const[value, setValue] = useState('')
     const dispatch = useDispatch()
     const chats = useSelector(selectChat, (prev,next) => prev.length === next.length)
@@ -13,10 +15,13 @@ export function ChatList () {
     const handleSubmit = (e) => {
         e.preventDefault()
         dispatch(addChat(value))
-        // onAddChat({
-        //     id: nanoid(),
-        //     name: value
-        // })
+
+        set(messagesRef, {
+            ...messageDB,
+            [value]: {
+                name: value
+            }
+        })
     }
 
     return (
