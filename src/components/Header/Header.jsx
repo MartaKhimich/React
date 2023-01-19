@@ -1,10 +1,10 @@
 import { useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
-// import { selectAuth } from '../../store/profile/selectors'
 import { Outlet, NavLink } from 'react-router-dom'
 import { logOut } from '../../services/firebase'
+import IButton from '@mui/material/Button';
 import styles from './Header.module.css'
-import { async } from '@firebase/util'
+
 
 export const navigates = [
     {
@@ -46,7 +46,6 @@ export const navigates = [
 
 export function Header () {
     const navigate = useNavigate()
-    // const isAuth = useSelector(selectAuth())
     const isAuth = useSelector((store) => store.profile.isAuth)
 
     const handleSignIn = () => {
@@ -75,17 +74,31 @@ export function Header () {
                             </li>
                         ))}
                     </ul>
+                    <div className={styles.buttns}>
                     {!isAuth && (
                         <>
-                            <button onClick={handleSignIn}>SignIn</button>
-                            <button onClick={handleSignUp}>SignUp</button>
+                            <IButton 
+                                className={styles.btn}   
+                                variant="contained" 
+                                size="small" 
+                                onClick={handleSignIn}>SignIn</IButton>
+                            <IButton 
+                                className={styles.btn}   
+                                variant="contained" 
+                                size="small" 
+                                onClick={handleSignUp}>SignUp</IButton>
                         </>
                     )}
                     {isAuth && (
                         <>
-                            <button onClick={handleLogout}>Logout</button>
+                            <IButton 
+                                className={styles.btn}
+                                variant="contained" 
+                                size="small" 
+                                onClick={handleLogout}>Logout</IButton>
                         </>
                     )}
+                    </div>
                 </nav>
             </header>
             <main>

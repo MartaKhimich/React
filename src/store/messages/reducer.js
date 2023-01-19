@@ -1,5 +1,4 @@
 import { ADD_CHAT, DELETE_CHAT, ADD_MESSAGE } from './actions'
-import { AUTHOR } from '../../constants'
 
 const initialState = {
     default: [
@@ -31,8 +30,8 @@ const initialState = {
             case ADD_MESSAGE:
                 return {
                     ...state,
-                    [payload.chatName.chatId]: [
-                        ...state[payload.chatName.chatId],
+                    [payload.chatName]: [
+                        ...state[payload.chatName],
                         {
                             author: payload.text.author,
                             text: payload.text.text

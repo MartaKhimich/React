@@ -8,7 +8,7 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { blueGrey } from '@mui/material/colors';
 import TextField from '@mui/material/TextField';
 import { useDispatch } from 'react-redux'
-import { addMessage, addMessageWithReply } from '../../store/messages/actions'
+import { addMessageWithReply } from '../../store/messages/actions'
 import { useParams } from 'react-router-dom'
 import { push } from "firebase/database";
 import { getMessageListById } from "../../services/firebase";
@@ -24,24 +24,20 @@ const theme = createTheme({
 export function Form () {
     const [text, setText] = useState('')
     const dispatch = useDispatch()
-    const chatId = useParams()
+    const { chatId } = useParams()
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        // addMessage({
-        //     author: AUTHOR.user,
-        //     text
-        // })
 
         dispatch(addMessageWithReply(chatId, {
             author: AUTHOR.user,
             text
         }))
 
-        push(getMessageListById(chatId, {
+        push(getMessageListById(chatId), {
             author: AUTHOR.user,
             text
-        }))
+        })
 
         setText('')
     }

@@ -7,7 +7,7 @@ import { push, set, remove } from "firebase/database";
 import { messagesRef } from "../../services/firebase"
 import styles from '../../pages/Pages.module.css'
 
-export function ChatList () {
+export function ChatList ({messageDB}) {
     const[value, setValue] = useState('')
     const dispatch = useDispatch()
     const chats = useSelector(selectChat, (prev,next) => prev.length === next.length)
@@ -17,14 +17,11 @@ export function ChatList () {
         dispatch(addChat(value))
 
         set(messagesRef, {
+            ...messageDB,
             [value]: {
                 name: value
             }
         })
-        // onAddChat({
-        //     id: nanoid(),
-        //     name: value
-        // })
     }
 
     return (

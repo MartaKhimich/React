@@ -28,26 +28,6 @@ export function App() {
 
   const [messageDB, setMessageDB] = useState({})
 
-  // const chats = Object.keys(messages).map((chat) => ({
-  //   id: nanoid(),
-  //   name: chat
-  // }))
-
-  // const onAddChat = (newChat) => {
-  //   console.log('newChat', newChat)
-  //   setMessages({
-  //     ...messages,
-  //     [newChat.name]: []
-  //   })
-  // }
-
-  // const onAddMessage = (chatId, newMessage) => {
-  //   setMessages({
-  //     ...messages,
-  //     [chatId]: [...messages[chatId], newMessage]
-  //   })
-  // }
-
   const toggleTheme = () => {
     setTheme(theme === 'light' ? 'dark' : 'light')
   }
@@ -66,7 +46,6 @@ export function App() {
   useEffect(() => {
     onValue(messagesRef, (snapshot) => {
       const data = snapshot.val()
-      console.log('snapshot', data)
 
       setMessageDB(data)
     })
@@ -74,7 +53,6 @@ export function App() {
 
   return (
     <>
-      {/* <Provider store={store}> */}
         <PersistGate persistor={persistor}>
           <ThemeContext.Provider value={{ theme, toggleTheme }}>
             <Routes>
@@ -82,14 +60,10 @@ export function App() {
                   <Route index element={<MainPage />} />
                   <Route path='profile' element={<ProfilePage />} />
                   <Route path='about' element={<AboutWithConnect />} />
-                  {/* <Route path='chats'>
-                    <Route index element={<ChatList />} />
-                    <Route path=":chatId" element={<ChatsPage />} />
-                  </Route> */}
                   <Route path="chats" element={<PrivateRoute />}>
                     <Route
                       index
-                      element={<ChatList />}
+                      element={<ChatList messageDB={messageDB} />}
                     />
                     <Route
                       path=":chatId"
@@ -104,7 +78,6 @@ export function App() {
             </Routes>
           </ThemeContext.Provider>
         </PersistGate>
-      {/* </Provider> */}
     </>
   );
 }

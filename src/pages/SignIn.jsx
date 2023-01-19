@@ -32,33 +32,27 @@ export function SignIn () {
             setLoading(false)
         }
     }
-    //     if(inputs.login === 'gb' && inputs.password === 'gb') {
-    //         dispatch(auth(true))
-    //         navigate('/')
-    //     } else {
-    //         setError('Invalid login or password')
-    //         setInputs({login: '', password: ''})
-    //     }
-    // }
 
     return (
         <>
             <h1 className={styles.header}>SignIn</h1>
             <form onSubmit={handleSubmit}>
-                <p>Email:</p>
+                <label>Email:
                 <input 
                 type="email" 
                 name="email"
                 value={inputs.email}
                 onChange={(e) => setInputs((prev) => ({...prev, [e.target.name]: e.target.value}))}
                 />
-                <p>Password:</p>
+                </label>
+                <label>Password:
                 <input 
                 type="text" 
                 name="password"
                 value={inputs.password}
                 onChange={(e) => setInputs((prev) => ({...prev, [e.target.name]: e.target.value}))}
                 />
+                </label>
                 <br/>
                 <button>login</button>
             </form>

@@ -30,33 +30,28 @@ export function SignUp () {
             setLoading(false)
         }
 
-        // if(inputs.email === 'gb' && inputs.password === 'gb') {
-        //     dispatch(auth(true))
-        //     navigate('/')
-        // } else {
-        //     setError('Invalid email or password')
-        //     setInputs({email: '', password: ''})
-        // }
     }
 
     return (
         <>
             <h1 className={styles.header}>SignUp</h1>
             <form onSubmit={handleSubmit}>
-                <p>Email:</p>
+                <label>Email:
                 <input 
                 type="email" 
                 name="email"
                 value={inputs.email}
                 onChange={(e) => setInputs((prev) => ({...prev, [e.target.name]: e.target.value}))}
                 />
-                <p>Password:</p>
+                </label>
+                <label>Password:
                 <input 
                 type="text" 
                 name="password"
                 value={inputs.password}
                 onChange={(e) => setInputs((prev) => ({...prev, [e.target.name]: e.target.value}))}
                 />
+                </label>
                 <br/>
                 <button>SignUp</button>
             </form>
